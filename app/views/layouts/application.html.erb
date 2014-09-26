@@ -7,7 +7,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+    <%= link_to "Home" , root_path %>
+    <%= link_to "Agencies" , root_path %>
+    <%= link_to "Packets" , root_path %>
+    <%= link_to "Users" , root_path %>
+    <%= link_to "Pricing" , root_path %>
+    <%= link_to "About Us" , root_path %>
+  
+    <%= link_to "Login" , root_path %>
+  
     <% if flash[:notice] %>
       <div class="alert alert-success">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
