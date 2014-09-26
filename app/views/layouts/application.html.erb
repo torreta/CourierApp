@@ -7,17 +7,22 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-    <%= link_to "Home" , welcome_index_path %>
-    <%= link_to "Agencies" , agencies_path %>
-    <%= link_to "Packets" , root_path %>
-    <%= link_to "Rates" , rates_path %>
-    <%= link_to "Users" , root_path %>
-    <%= link_to "Roles" ,  welcome_people_path %>
-    <%= link_to "Pricing" , welcome_pricing_path %>
-    <%= link_to "About Us" , welcome_about_path %>
   
-    <%= link_to "Login" , root_path %>
-  
+  <div class="container">
+    <ul class="nav nav-tabs">  
+       <li> <%= link_to "Home" , welcome_index_path %></li>
+       <li> <%= link_to "Agencies" , agencies_path %></li>
+       <li><%= link_to "Packets" , root_path %></li>
+       <li> <%= link_to "Rates" , rates_path %></li>
+       <li> <%= link_to "Users" , root_path %></li>
+       <li><%= link_to "Roles" ,  welcome_people_path %></li>
+       <li><%= link_to "Pricing" , welcome_pricing_path %></li>
+       <li> <%= link_to "About Us" , welcome_about_path %></li>
+
+       <li><%= link_to "Login" , root_path %></li>
+    </ul>
+      
+      
     <% if flash[:notice] %>
       <div class="alert alert-success">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -35,7 +40,9 @@
       </div>
     <% end %>
     
-<%= yield %>
-
+    <%= yield %>
+      
+  </div>
+      
 </body>
 </html>
