@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :rates
+
   resources :agencies
 
   get 'welcome/index'
