@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sender_id: 1
+  receiver_id: 1
+  sender_agency_id: 1
+  receiver_agency_id: 1
+  status: MyString
+  dispatched_at: 2014-09-26 23:41:04
+  delivered_at: 2014-09-26 23:41:04
+  lenght: 9.99
+  width: 9.99
+  height: 9.99
+  weight: 9.99
+
+two:
+  sender_id: 1
+  receiver_id: 1
+  sender_agency_id: 1
+  receiver_agency_id: 1
+  status: MyString
+  dispatched_at: 2014-09-26 23:41:04
+  delivered_at: 2014-09-26 23:41:04
+  lenght: 9.99
+  width: 9.99
+  height: 9.99
+  weight: 9.99

@@ -11,12 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140926215104) do
+ActiveRecord::Schema.define(version: 20140926234104) do
 
   create_table "agencies", force: true do |t|
     t.string   "name"
     t.string   "phone"
     t.string   "address"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "packages", force: true do |t|
+    t.integer  "sender_id"
+    t.integer  "receiver_id"
+    t.integer  "sender_agency_id"
+    t.integer  "receiver_agency_id"
+    t.string   "status"
+    t.datetime "dispatched_at"
+    t.datetime "delivered_at"
+    t.decimal  "lenght"
+    t.decimal  "width"
+    t.decimal  "height"
+    t.decimal  "weight"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

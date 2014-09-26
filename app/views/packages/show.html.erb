@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Sender:</strong>
+  <%= @package.sender_id %>
+</p>
+
+<p>
+  <strong>Receiver:</strong>
+  <%= @package.receiver_id %>
+</p>
+
+<p>
+  <strong>Sender agency:</strong>
+  <%= @package.sender_agency_id %>
+</p>
+
+<p>
+  <strong>Receiver agency:</strong>
+  <%= @package.receiver_agency_id %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @package.status %>
+</p>
+
+<p>
+  <strong>Dispatched at:</strong>
+  <%= @package.dispatched_at %>
+</p>
+
+<p>
+  <strong>Delivered at:</strong>
+  <%= @package.delivered_at %>
+</p>
+
+<p>
+  <strong>Lenght:</strong>
+  <%= @package.lenght %>
+</p>
+
+<p>
+  <strong>Width:</strong>
+  <%= @package.width %>
+</p>
+
+<p>
+  <strong>Height:</strong>
+  <%= @package.height %>
+</p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @package.weight %>
+</p>
+
+<%= link_to 'Edit', edit_package_path(@package) %> |
+<%= link_to 'Back', packages_path %>
