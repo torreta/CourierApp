@@ -1,29 +1,32 @@
 <h1>Listing rates</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Creator</th>
-      <th>Constant</th>
-      <th>Value bs</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="media">
+  <div class="media-body">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Creator</th>
+          <th>Constant</th>
+          <th>Value bs</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @rates.each do |rate| %>
-      <tr>
-        <td><%= rate.creator_id %></td>
-        <td><%= rate.constant %></td>
-        <td><%= rate.value_bs %></td>
-        <td><%= link_to 'Show', rate %></td>
-        <td><%= link_to 'Edit', edit_rate_path(rate) %></td>
-        <td><%= link_to 'Destroy', rate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+      <tbody>
+        <% @rates.each do |rate| %>
+          <tr>
+            <td><%= rate.creator_id %></td>
+            <td><%= rate.constant %></td>
+            <td><%= rate.value_bs %></td>
+            <td><%= link_to 'Show', rate, class:'btn btn-mini' %></td>
+            <td><%= link_to 'Edit', edit_rate_path(rate), class:'btn btn-mini btn-success'  %></td>
+            <td><%= link_to 'Destroy', rate, method: :delete, class:'btn btn-mini btn-danger', data: { confirm: 'Are you sure?' }  %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
 <br>
 
 <%= link_to 'New Rate', new_rate_path %>
