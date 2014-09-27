@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140927033015) do
+ActiveRecord::Schema.define(version: 20140927185458) do
 
   create_table "agencies", force: true do |t|
     t.string   "name"
@@ -37,6 +37,22 @@ ActiveRecord::Schema.define(version: 20140927033015) do
     t.datetime "updated_at"
   end
 
+  create_table "profiles", force: true do |t|
+    t.string   "role"
+    t.string   "cedula"
+    t.string   "name"
+    t.string   "lastname"
+    t.string   "phone"
+    t.string   "address"
+    t.integer  "agency_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "profiles", ["agency_id"], name: "index_profiles_on_agency_id"
+  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"
+
   create_table "rates", force: true do |t|
     t.integer  "creator_id"
     t.decimal  "constant"
@@ -58,6 +74,13 @@ ActiveRecord::Schema.define(version: 20140927033015) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "role"
+    t.string   "cedula"
+    t.string   "name"
+    t.string   "lastname"
+    t.string   "phone"
+    t.string   "address"
+    t.integer  "agency_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

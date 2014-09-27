@@ -19,8 +19,11 @@
        <li><%= link_to "Pricing" , welcome_pricing_path %></li>
        <li> <%= link_to "About Us" , welcome_about_path %></li>
 
-      <% if current_user %>          
-        <li><%= link_to "My Profile" , destroy_user_session_path, method: :delete %></li>
+      <% if current_user %>  
+      <% @user = current_user.id %>
+      <% session[:id] = @user%>
+      <% params[:id]= @user%>
+      <li><%= link_to "My Profile" , edit_profile_path(params[:id]) %></li>
         <li><%= link_to "Sign Out" , destroy_user_session_path, method: :delete %></li>
       <% else %>
         <li><%= link_to "Sign Up" , new_user_registration_path %></li>
