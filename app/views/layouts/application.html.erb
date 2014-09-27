@@ -15,7 +15,7 @@
        <li><%= link_to "Packages" , packages_path %></li>
        <li> <%= link_to "Rates" , rates_path %></li>
        <li> <%= link_to "Users" , root_path %></li>
-       <li><%= link_to "Roles" ,  welcome_people_path %></li>
+       <li><%= link_to "Roles" ,  profiles_path %></li>
        <li><%= link_to "Pricing" , welcome_pricing_path %></li>
        <li> <%= link_to "About Us" , welcome_about_path %></li>
 
@@ -53,10 +53,24 @@
     <% if current_user %>  
       <%= current_user.email %>
     <% end %>  
+    <% if current_user%>  
+      <% if current_user.profile %>
+        <% @profile = current_user.profile %>
+          <% if @profile.name =="Unknow" %>
+            <%= "Please Edit your profile Mr. #{@profile.name}"  %>  
+          <% else %>
+            <%= "Welcome back #{@profile.name}"  %>  
+          <% end %>
+      <% else %>
+        <% pr = Profile.new %> 
+        <% pr.role="Unknow"; pr.cedula="0"; pr.name="Unknow"; pr.lastname= "Unknow"; pr.phone="0000-0000000"; pr.address="Unknow"; pr.agency_id=1; pr.user_id=current_user.id %>
+        <% pr.save %>
+      <% end %>
+    <% end %>  
+    
     
     <%= yield %>
       
-  </div>
-      
+  </div>      
 </body>
 </html>
