@@ -4,7 +4,8 @@ class PackagesController < ApplicationController
   # GET /packages
   # GET /packages.json
   def index
-    @packages = Package.all
+    @search = PackageSearch.new(params[:search])
+    @packages = @search.scope
   end
 
   # GET /packages/1
