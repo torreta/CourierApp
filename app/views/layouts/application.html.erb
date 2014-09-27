@@ -19,7 +19,7 @@
        <li><%= link_to "Pricing" , welcome_pricing_path %></li>
        <li> <%= link_to "About Us" , welcome_about_path %></li>
 
-      <% if current_user %>
+      <% if current_user %>          
         <li><%= link_to "My Profile" , destroy_user_session_path, method: :delete %></li>
         <li><%= link_to "Sign Out" , destroy_user_session_path, method: :delete %></li>
       <% else %>
@@ -46,6 +46,10 @@
         <%= flash[:alert] %>
       </div>
     <% end %>
+    
+    <% if current_user %>  
+    <%= current_user.email %>
+    <% end %>  
     
     <%= yield %>
       
