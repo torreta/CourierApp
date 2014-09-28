@@ -1,61 +1,87 @@
-<%= form_for(@package) do |f| %>
-  <% if @package.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@package.errors.count, "error") %> prohibited this package from being saved:</h2>
+<div class="row">
 
-      <ul>
-      <% @package.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+    <%= form_for @package, html: { class: 'form-horizontal'} do |f| %>
+      <% if @package.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@package.errors.count, "error") %> prohibited this package from being saved:</h2>
+
+          <ul>
+          <% @package.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :sender_id %><br>
-    <%= f.number_field :sender_id %>
-  </div>
-  <div class="field">
-    <%= f.label :receiver_id %><br>
-    <%= f.number_field :receiver_id %>
-  </div>
-  <div class="field">
-    <%= f.label :sender_agency_id %><br>
-    <%= f.number_field :sender_agency_id %>
-  </div>
-  <div class="field">
-    <%= f.label :receiver_agency_id %><br>
-    <%= f.number_field :receiver_agency_id %>
-  </div>
-  <div class="field">
-    <%= f.label :status %><br>
-    <%= f.text_field :status %>
-  </div>
-  <div class="field">
-    <%= f.label :dispatched_at %><br>
-    <%= f.datetime_select :dispatched_at %>
-  </div>
-  <div class="field">
-    <%= f.label :delivered_at %><br>
-    <%= f.datetime_select :delivered_at %>
-  </div>
-  <div class="field">
-    <%= f.label :lenght %><br>
-    <%= f.text_field :lenght %>
-  </div>
-  <div class="field">
-    <%= f.label :width %><br>
-    <%= f.text_field :width %>
-  </div>
-  <div class="field">
-    <%= f.label :height %><br>
-    <%= f.text_field :height %>
-  </div>
-  <div class="field">
-    <%= f.label :weight %><br>
-    <%= f.text_field :weight %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+      <div class="control-group">
+        <%= f.label :sender_id, class: 'control-label' %><br>
+        <div class="controls">
+          <%= f.number_field :sender_id %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :receiver_id, class: 'control-label' %><br>
+        <div class="controls">
+          <%= f.number_field :receiver_id %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :sender_agency_id, class: 'control-label' %><br>
+        <div class="controls">
+          <%= f.number_field :sender_agency_id %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :receiver_agency_id , class: 'control-label'%><br>
+        <div class="controls">
+          <%= f.number_field :receiver_agency_id %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :status, class: 'control-label' %><br>
+        <div class="controls">
+          <%= f.text_field :status %>
+        </div>
+      <div class="control-group">
+        <%= f.label :dispatched_at , class: 'control-label'%><br>
+        <div class="controls">
+          <%= f.date_select :dispatched_at %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :delivered_at, class: 'control-label' %><br>
+        <div class="controls">
+          <%= f.date_select :delivered_at %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :lenght, class: 'control-label' %><br>
+        <div class="controls">
+          <%= f.text_field :lenght %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :width , class: 'control-label'%><br>
+        <div class="controls">
+          <%= f.text_field :width %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :height , class: 'control-label'%><br>
+        <div class="controls">
+          <%= f.text_field :height %>
+        </div>
+      </div>
+     <div class="control-group">
+        <%= f.label :weight , class: 'control-label'%><br>
+       <div class="controls">
+        <%= f.text_field :weight %>
+       </div>
+      </div>
+      <div class="control-group">
+        <div class="controls">
+          <%= f.submit 'Submit', class: 'btn btn-default'%>
+        </div>
+      </div>
+    <% end %>
+</div>
