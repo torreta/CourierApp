@@ -22,6 +22,14 @@
       </thead>
 
       <tbody>
+         <% #si el usuario esta logueado, a menos que sea administrador solo podra ver sus propios paquetes%>
+         <% if current_user %>
+            <% unless current_user.profile.role=="Admin" %>
+              <% @package_send = Package.where(sender_id:session[:id])%>
+              <% @package_rec = Package.where(receiver_id:session[:id])%>
+              <% @packages = @package_send + @package_rec %>
+            <% end %>
+        <%end %>
         <% @packages.each do |package| %>
           <tr>
             <td><%= package.sender_id %></td>
@@ -38,8 +46,14 @@
             <td><%= package.height %></td>
             <td><%= package.weight %></td>
             <td><%= link_to 'Show', package, class:'btn btn-mini' %></td>
-            <td><%= link_to 'Edit', edit_package_path(package), class:'btn btn-mini btn-success' %></td>
-            <td><%= link_to 'Destroy', package, method: :delete, class:'btn btn-mini btn-danger', data: { confirm: 'Are you sure?' } %></td>
+            
+            <% #si el usuario esta logueado, o operador, no podra realizar estas operaciones. %>
+             <% if current_user %>
+                <% if (current_user.profile.role=="Admin" || current_user.profile.role=="Operator") %>
+                  <td><%= link_to 'Edit', edit_package_path(package), class:'btn btn-mini btn-success' %></td>
+                  <td><%= link_to 'Destroy', package, method: :delete, class:'btn btn-mini btn-danger', data: { confirm: 'Are you sure?' } %></td>
+                <% end %>
+            <% end %>
           </tr>
         <% end %>
       </tbody>

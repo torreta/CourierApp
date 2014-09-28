@@ -23,6 +23,7 @@
       <% @user = current_user.id %>
       <% session[:id] = @user%>
       <% params[:id]= @user%>
+      
       <li><%= link_to "My Profile" , edit_profile_path(params[:id]) %></li>
         <li><%= link_to "Sign Out" , destroy_user_session_path, method: :delete %></li>
       <% else %>
@@ -54,6 +55,8 @@
       <%= current_user.email %>
     <% end %>  
     <% if current_user%>  
+      <% session[:id] = current_user.id %>
+      <%= "mira aqui, el session id  #{session[:id]}"%>
       <% if current_user.profile %>
         <% @profile = current_user.profile %>
           <% if @profile.name =="Unknow" %>

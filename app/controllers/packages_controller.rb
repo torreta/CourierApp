@@ -11,7 +11,7 @@ class PackagesController < ApplicationController
   # GET /packages/1.json
   def show
   end
-
+  
   # GET /packages/new
   def new
     @package = Package.new
