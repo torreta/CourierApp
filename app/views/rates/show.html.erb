@@ -2,7 +2,8 @@
 
 <p>
   <strong>Creator:</strong>
-  <%= @rate.creator_id %>
+  <% @busca = @rate.creator_id; @busca = Profile.find(id=@busca); @busca = @busca.name  %>
+  <%= @busca; %>
 </p>
 
 <p>

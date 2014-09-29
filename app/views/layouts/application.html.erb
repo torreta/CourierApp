@@ -52,11 +52,11 @@
     <% end %>
     
     <% if current_user %>  
-      <%= current_user.email %>
+      <% current_user.email %>
     <% end %>  
     <% if current_user%>  
       <% session[:id] = current_user.id %>
-      <%= "mira aqui, el session id  #{session[:id]}"%>
+      <% "mira aqui, el session id  #{session[:id]}"%>
       <% if current_user.profile %>
         <% @profile = current_user.profile %>
           <% if @profile.name =="Unknow" %>

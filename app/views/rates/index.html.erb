@@ -15,7 +15,9 @@
       <tbody>
         <% @rates.each do |rate| %>
           <tr>
-            <td><%= rate.creator_id %></td>
+            <% @busca = rate.creator_id; @busca = Profile.find(id=@busca); @busca = @busca.name  %>
+            <td><%= @busca; %></td>
+            
             <td><%= rate.constant %></td>
             <td><%= rate.value_bs %></td>
             <td><%= link_to 'Show', rate, class:'btn btn-mini' %></td>

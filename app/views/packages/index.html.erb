@@ -11,12 +11,12 @@
           <th>Sender agency</th>
           <th>Receiver agency</th>
           <th>Status</th>
-          <th>Dispatched at</th>
-          <th>Delivered at</th>
+
           <th>Lenght</th>
           <th>Width</th>
           <th>Height</th>
           <th>Weight</th>
+          <th>Cost</th>
           <th colspan="6">Actions</th>
         </tr>
       </thead>
@@ -46,12 +46,19 @@
             <td><%= @busca %></td>
                        
             <td><%= package.status %></td>            
-            <td><%= package.dispatched_at.strftime("%Y/%m/%d") %></td>
-            <td><%= package.delivered_at.strftime("%Y/%m/%d") %></td>            
+     
             <td><%= package.lenght %></td>
             <td><%= package.width %></td>
             <td><%= package.height %></td>
             <td><%= package.weight %></td>
+            
+            
+            <% @rate = Rate.last;      %>
+            <% @cost = ((package.width)*(package.height)*( package.lenght)*(package.weight)   /   @rate.constant)   +  (@rate.value_bs)%(40) %>
+            <td><%= (@cost).round(2) %></td> 
+            
+            
+            
             <td><%= link_to 'Show', package, class:'btn btn-mini' %></td>
             
             <% #si el usuario esta logueado, o operador, no podra realizar estas operaciones. %>

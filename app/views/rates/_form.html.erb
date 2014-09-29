@@ -12,12 +12,13 @@
       </div>
     <% end %>
 
-   <div class="control-group">
-      <%= f.label :creator_id, class: 'control-label' %><br>
-      <div class="controls">
-        <%= f.number_field :creator_id %>
-      </div>
-    </div>  
+  <div class="control-group">
+    <%= f.label :creator_id, class: 'control-label' %><br>
+    <div class="controls">
+      <%= collection_select(:rate, :creator_id, Profile.all, :id, :name, {}, {:multiple => false }) %> 
+    </div>
+  </div>
+  
    <div class="control-group">
       <%= f.label :constant , class: 'control-label'%><br>
       <div class="controls">

@@ -31,12 +31,12 @@
 
 <p>
   <strong>Dispatched at:</strong>
-  <%= @package.dispatched_at %>
+  <%= @package.dispatched_at.strftime("%Y/%m/%d") %>
 </p>
-
+ 
 <p>
   <strong>Delivered at:</strong>
-  <%= @package.delivered_at %>
+  <%= @package.delivered_at.strftime("%Y/%m/%d") %>
 </p>
 
 <p>
