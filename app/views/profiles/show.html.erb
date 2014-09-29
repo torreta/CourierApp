@@ -32,12 +32,12 @@
 
 <p>
   <strong>Agency:</strong>
-  <%= @profile.agency %>
+  <%= @profile.agency.name %>
 </p>
 
 <p>
   <strong>User:</strong>
-  <%= @profile.user %>
+  <%= @profile.user.name %>
 </p>
 
 <%= link_to 'Edit', edit_profile_path(@profile) %> |
