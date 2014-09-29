@@ -13,29 +13,34 @@
         </div>
       <% end %>
 
+  
+  
       <div class="control-group">
         <%= f.label :sender_id, class: 'control-label' %><br>
         <div class="controls">
-          <%= f.number_field :sender_id %>
+          <%= collection_select(:package, :sender_id, Profile.all, :id, :name, {}, { :selected => @package.sender_id, :multiple => false }) %> 
         </div>
       </div>
+
       <div class="control-group">
         <%= f.label :receiver_id, class: 'control-label' %><br>
         <div class="controls">
-          <%= f.number_field :receiver_id %>
+          <%= collection_select(:package, :receiver_id, Profile.all, :id, :name, {}, { :multiple => false } ) %> 
         </div>
       </div>
-      <div class="control-group">
-        <%= f.label :sender_agency_id, class: 'control-label' %><br>
-        <div class="controls">
-          <%= f.number_field :sender_agency_id %>
-        </div>
+
+         <div class="control-group">
+           <%= f.label :sender_agency_id, class: 'control-label' %><br>
+         <div class="controls">
+           <%= collection_select(:package, :sender_agency_id, Agency.all, :id, :name, {}, { :multiple => false } ) %> 
+         </div>
       </div>
-      <div class="control-group">
-        <%= f.label :receiver_agency_id , class: 'control-label'%><br>
-        <div class="controls">
-          <%= f.number_field :receiver_agency_id %>
-        </div>
+
+       <div class="control-group">
+           <%= f.label :receiver_agency_id, class: 'control-label' %><br>
+         <div class="controls">
+           <%= collection_select(:package, :receiver_agency_id, Agency.all, :id, :name, {}, { :multiple => false } ) %> 
+         </div>
       </div>
   
     <% if current_user %>

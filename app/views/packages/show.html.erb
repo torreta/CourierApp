@@ -1,23 +1,27 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Sender:</strong>
-  <%= @package.sender_id %>
+  <strong>Sender:</strong>           
+  <% @busca = @package.sender_id; @busca = Profile.find(id=@busca); @busca = @busca.name  %>
+  <%= @busca; %>
 </p>
 
 <p>
   <strong>Receiver:</strong>
-  <%= @package.receiver_id %>
+  <% @busca = @package.receiver_id; @busca = Profile.find(id=@busca); @busca = @busca.name  %>                        
+  <%= @busca %>
 </p>
 
 <p>
   <strong>Sender agency:</strong>
-  <%= @package.sender_agency_id %>
+  <% @busca = @package.sender_agency_id; @busca = Agency.find(id=@busca); @busca = @busca.name  %>                        
+  <%= @busca %>
 </p>
 
 <p>
   <strong>Receiver agency:</strong>
-  <%= @package.receiver_agency_id %>
+  <% @busca = @package.receiver_agency_id; @busca = Agency.find(id=@busca); @busca = @busca.name  %>                        
+  <%= @busca %>
 </p>
 
 <p>

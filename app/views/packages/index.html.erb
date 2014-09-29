@@ -32,15 +32,22 @@
         <%end %>
         <% @packages.each do |package| %>
           <tr>
-            <td><%= package.sender_id %></td>
-            <td><%= package.receiver_id %></td>
-            <td><%= package.sender_agency_id %></td>
-            <td><%= package.receiver_agency_id %></td>
-            <td><%= package.status %></td>
             
+            <% @busca = package.sender_id; @busca = Profile.find(id=@busca); @busca = @busca.name  %>
+            <td><%= @busca; %></td>
+            
+            <% @busca = package.receiver_id; @busca = Profile.find(id=@busca); @busca = @busca.name  %>                        
+            <td><%= @busca %></td>
+            
+            <% @busca = package.sender_agency_id; @busca = Agency.find(id=@busca); @busca = @busca.name  %>                        
+            <td><%= @busca %></td>
+            
+            <% @busca = package.receiver_agency_id; @busca = Agency.find(id=@busca); @busca = @busca.name  %>                        
+            <td><%= @busca %></td>
+                       
+            <td><%= package.status %></td>            
             <td><%= package.dispatched_at.strftime("%Y/%m/%d") %></td>
-            <td><%= package.delivered_at.strftime("%Y/%m/%d") %></td>
-            
+            <td><%= package.delivered_at.strftime("%Y/%m/%d") %></td>            
             <td><%= package.lenght %></td>
             <td><%= package.width %></td>
             <td><%= package.height %></td>
