@@ -1,37 +1,50 @@
 <h1>Listing profiles</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Role</th>
-      <th>Cedula</th>
-      <th>Name</th>
-      <th>Lastname</th>
-      <th>Phone</th>
-      <th>Address</th>
-      <th>Agency</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="media">
+  <div class="media-body">
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Role</th>
+            <th>Cedula</th>
+            <th>Name</th>
+            <th>Lastname</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>Agency</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
 
-  <tbody>
-    <% @profiles.each do |profile| %>
-      <tr>
-        <td><%= profile.role %></td>
-        <td><%= profile.cedula %></td>
-        <td><%= profile.name %></td>
-        <td><%= profile.lastname %></td>
-        <td><%= profile.phone %></td>
-        <td><%= profile.address %></td>
-        <td><%= profile.agency.name %></td>
-        <td><%= link_to 'Show', profile %></td>
-        <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
-        <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+        <tbody>
+          <% @profiles.each do |profile| %>
+            <tr>
+              <td><%= profile.role %></td>
+              <td><%= profile.cedula %></td>
+              <td><%= profile.name %></td>
+              <td><%= profile.lastname %></td>
+              <td><%= profile.phone %></td>
+              <td><%= profile.address %></td>
+              <td><%= profile.agency.name %></td>
+              
+              
+              <td><%= link_to 'Show', profile , class:'btn btn-mini'%></td>
+              
+              
+                          <% #si el usuario esta logueado, o operador, no podra realizar estas operaciones. %>
+             <% if current_user %>
+                <% if (current_user.profile.role=="Admin" || current_user.profile.role=="Operator") %>
+                    <td><%= link_to 'Edit', edit_profile_path(profile), class:'btn btn-mini btn-success' %></td>
+                    <td><%= link_to 'Destroy', profile, method: :delete, class:'btn btn-mini btn-danger', data: { confirm: 'Are you sure?' }%></td>
+               <% end %>
+            <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+  </div>
+</div>
+<br>
 <br>
 
 <%= link_to 'New Profile', new_profile_path %>
