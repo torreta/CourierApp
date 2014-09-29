@@ -19,8 +19,14 @@
           <td><%= agency.phone %></td>
           <td><%= agency.address %></td>
           <td><%= link_to 'Show', agency, class:'btn btn-mini' %></td>
-          <td><%= link_to 'Edit', edit_agency_path(agency), class:'btn btn-mini btn-success'  %></td>
-          <td><%= link_to 'Destroy', agency, method: :delete, class:'btn btn-mini btn-danger', data: { confirm: 'Are you sure?' }  %></td>
+          
+          <% if current_user  %>
+             <% if (current_user.profile.role=="Admin" || current_user.profile.role=="Operator") %>
+              <td><%= link_to 'Edit', edit_agency_path(agency), class:'btn btn-mini btn-success'  %></td>
+              <td><%= link_to 'Destroy', agency, method: :delete, class:'btn btn-mini btn-danger', data: { confirm: 'Are you sure?' }  %></td>
+            <%  end  %>
+          <%  end  %>
+          
         </tr>
         <% end %>
       </tbody>
@@ -29,5 +35,8 @@
 </div>
 
 <br>
-
-<%= link_to 'New Agency', new_agency_path %>
+          <% if current_user  %>
+             <% if (current_user.profile.role=="Admin" || current_user.profile.role=="Operator") %>
+              <%= link_to 'New Agency', new_agency_path %>
+            <%  end  %>
+          <%  end  %>

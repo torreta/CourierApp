@@ -16,13 +16,22 @@
         <% @rates.each do |rate| %>
           <tr>
             <% @busca = rate.creator_id; @busca = Profile.find(id=@busca); @busca = @busca.name  %>
-            <td><%= @busca; %></td>
+            <td><%= @busca %></td>
             
             <td><%= rate.constant %></td>
             <td><%= rate.value_bs %></td>
+            
+            
             <td><%= link_to 'Show', rate, class:'btn btn-mini' %></td>
-            <td><%= link_to 'Edit', edit_rate_path(rate), class:'btn btn-mini btn-success'  %></td>
-            <td><%= link_to 'Destroy', rate, method: :delete, class:'btn btn-mini btn-danger', data: { confirm: 'Are you sure?' }  %></td>
+            
+            <% if current_user %>
+              <% if current_user.profile.role=="Admin" %>
+ 
+                <td><%= link_to 'Edit', edit_rate_path(rate), class:'btn btn-mini btn-success'  %></td>                        
+                <td><%= link_to 'Destroy', rate, method: :delete, class:'btn btn-mini btn-danger', data: { confirm: 'Are you sure?' }  %></td>
+              <% end %>
+            <% end %>
+
           </tr>
         <% end %>
       </tbody>
@@ -30,5 +39,8 @@
   </div>
 </div>
 <br>
-
-<%= link_to 'New Rate', new_rate_path %>
+<% if current_user %>
+  <% if current_user.profile.role=="Admin" %>
+    <%= link_to 'New Rate', new_rate_path %>
+  <% end %>
+<% end %>

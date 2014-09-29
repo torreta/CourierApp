@@ -5,17 +5,22 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+ 
 </head>
 <body>
   
   <div class="container">
     <ul class="nav nav-tabs">  
+       <img src="http://placehold.it/1080x100">
        <li> <%= link_to "Home" , welcome_index_path %></li>
        <li> <%= link_to "Agencies" , agencies_path %></li>
-       <li><%= link_to "Packages" , packages_path %></li>
+      
+       <% if current_user  %>
+         <li><%= link_to "Packages" , packages_path %></li>
+         <li> <%= link_to "Users" , profiles_path %></li>
+      <% end %>
        <li> <%= link_to "Rates" , rates_path %></li>
-      <li> <%= link_to "Users" , profiles_path %></li>
-       <li><%= link_to "Roles" ,  profiles_path %></li>
+
        <li><%= link_to "Pricing" , welcome_pricing_path %></li>
        <li> <%= link_to "About Us" , welcome_about_path %></li>
 
