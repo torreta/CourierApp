@@ -37,17 +37,27 @@
           <%= f.number_field :receiver_agency_id %>
         </div>
       </div>
-      <div class="control-group">
-        <%= f.label :status, class: 'control-label' %><br>
-        <div class="controls">
-          <%= f.text_field :status %>
-        </div>
+  
+    <% if current_user %>
+    <% #todo depende de que usuario sea, se desplegaran opciones %>
+       <% if current_user.profile.role=="Admin" || current_user.profile.role=="Operator" %>  
+           <div class="control-group">
+            <%= f.label :status, class: 'control-label' %><br>
+             <div class="controls">
+               <%= f.select( :status, options_for_select([['Packing','Packing'],['Dispatched','Dispatched'],['Transit','Transit'],['Delivered','Delivered'],['Lost','Lost']])) %>
+             </div>
+          </div>
+       <% end %>
+    <% end %>
+  
+  
       <div class="control-group">
         <%= f.label :dispatched_at , class: 'control-label'%><br>
         <div class="controls">
           <%= f.date_select :dispatched_at %>
         </div>
       </div>
+  
       <div class="control-group">
         <%= f.label :delivered_at, class: 'control-label' %><br>
         <div class="controls">

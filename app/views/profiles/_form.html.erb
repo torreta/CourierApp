@@ -12,12 +12,34 @@
         </div>
       <% end %>
 
-       <div class="control-group">
-        <%= f.label :role, class: 'control-label' %><br>
-         <div class="controls">
-            <%= f.text_field :role %>
-         </div>
-      </div>
+  
+    <% if current_user %>
+    <% #todo depende de que usuario sea, se desplegaran opciones %>
+       <% if current_user.profile.role=="Admin" %>  
+           <div class="control-group">
+            <%= f.label :role, class: 'control-label' %><br>
+             <div class="controls">
+               <%= f.select( :role, options_for_select([['Admin','Admin'],['Operator','Operator'],['Client','Client']])) %>
+             </div>
+          </div>
+      <% elsif current_user.profile.role=="Operator" %>    
+          <div class="control-group">
+            <%= f.label :role, class: 'control-label' %><br>
+             <div class="controls">
+               <%= f.select( :role, options_for_select([['Operator','Operator'],['Client','Client']])) %>
+             </div>
+          </div>
+       <% else %>    
+          <div class="control-group">
+            <%= f.label :role, class: 'control-label' %><br>
+             <div class="controls">
+               <%= f.select( :role, options_for_select([[' ',' '],['Client','Client']])) %>
+             </div>
+          </div>
+       <% end %>
+    <% end %>
+  
+  
        <div class="control-group">
         <%= f.label :cedula, class: 'control-label' %><br>
          <div class="controls">
@@ -53,12 +75,6 @@
          <div class="controls">
           <%= f.text_field :agency_id %>
          </div>
-      </div>
-      <div class="control-group">
-        <%= f.label :user_id, class: 'control-label' %><br>
-        <div class="controls">
-          <%= f.text_field :user_id %>
-        </div>
       </div>
        <div class="control-group">
          <div class="controls">
