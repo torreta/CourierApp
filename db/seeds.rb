@@ -25,14 +25,18 @@ Package.create(sender_id: 1, receiver_id: 2, sender_agency_id: 1, receiver_agenc
 
 Package.create(sender_id: 1, receiver_id: 1, sender_agency_id: 2, receiver_agency_id: 2, status: "Delivered", dispatched_at: "2014-09-27 02:23:00", delivered_at: "2014-09-27 02:23:00", lenght: 7, width: 8, height:9, weight: 10)
 
-User.create( email: "dead_or_luis@hotmail.com", encrypted_password: "$2a$10$ZrZ7PmxDyEYVDMoTwXGh4OjGb3uphaC.iZO0ltsmdDD...", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 10, current_sign_in_at: "2014-09-28 23:43:56", last_sign_in_at: "2014-09-28 22:28:34", current_sign_in_ip: "190.72.142.27", last_sign_in_ip: "190.72.142.27", role: "Admin", cedula: "18033084", name: "Luis", lastname: "Campos", phone: "0212-5719760", address: "casa. natalia", agency_id: 1)
+User.create( email: "dead_or_luis@hotmail.com", encrypted_password: "$2a$10$ZrZ7PmxDyEYVDMoTwXGh4OjGb3uphaC.iZO0ltsmdDD...", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 10, current_sign_in_at: "2014-09-28 23:43:56", last_sign_in_at: "2014-09-28 22:28:34", current_sign_in_ip: "190.72.142.27", last_sign_in_ip: "190.72.142.27")
+ 
+
+User.create( email: "mail@gmail.com", encrypted_password: "$2a$10$ZrZ7PmxDyEYVDMoTwXGh4OjGb3uphaC.iZO0ltsmdDD...", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 10, current_sign_in_at: "2014-09-28 23:43:56", last_sign_in_at: "2014-09-28 22:28:34", current_sign_in_ip: "190.72.142.27", last_sign_in_ip: "190.72.142.27")
     
 User.create(email: "dead_or_luis@hotmail.com2", encrypted_password: "$2a$10$1/iooQNZYlH/gN1BMLytPe7QKLAxA5Y3uwx0vYu/ZHt...", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 3, current_sign_in_at: "2014-09-27 20:59:30", last_sign_in_at: "2014-09-27 19:54:11", current_sign_in_ip: "190.72.142.2
-7", last_sign_in_ip: "190.72.142.27", role: nil, cedula: nil, name: nil, lastname: nil, phone: nil, address: nil, agency_id: nil)
+7", last_sign_in_ip: "190.72.142.27")
 
-User.create( email: "torreta@gmail.com", encrypted_password: "$2a$10$eFXWyRtGuy0RWTOI1osfxeXRDa9MgmgRRTB1.utAUEh...", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 3, current_sign_in_at: "2014-09-27 21:15:04", last_sign_in_at: "2014-09-27 21:12:45", current_sign_in_ip: "190.72.142.27", last_sign_in_ip: "190.72.142.27", role: nil, cedula: nil, name: nil, lastname: nil, phone: nil, address: nil, agency_id: nil)
+User.create( email: "torreta@gmail.com", encrypted_password: "$2a$10$eFXWyRtGuy0RWTOI1osfxeXRDa9MgmgRRTB1.utAUEh...", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 3, current_sign_in_at: "2014-09-27 21:15:04", last_sign_in_at: "2014-09-27 21:12:45", current_sign_in_ip: "190.72.142.27", last_sign_in_ip: "190.72.142.27")
 
 Profile.create(role: "Admin", cedula: "18033084", name: "Luis", lastname: "Campos", phone: "0412-0107979", address: "casa natalia", agency_id: 4, user_id: 1)
+Profile.create(role: "Admin", cedula: "18033084", name: "ese", lastname: "Campos", phone: "0412-0107978", address: "casa natalia", agency_id: 4, user_id: 2)
 Profile.create( role: "Admin", cedula: "19154154", name: "Pablo", lastname: "Camejo", phone: "0212-5789797", address: "Casa Concordia", agency_id: 5, user_id: 2)
 Profile.create( role: "Client", cedula: "17545852", name: "Richard", lastname: "Perea", phone: "0212-8784452", address: "Casa noriega", agency_id: 1, user_id: 3)
 
